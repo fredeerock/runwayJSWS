@@ -12,19 +12,22 @@ document.addEventListener("DOMContentLoaded", function(event) {
     console.log("connected")
   });
   
-  // Wehn data is sent update the raw source. Sometimes this is data.output instead.
+  // When data is sent update the raw source. Sometimes this is data.output instead.
   socket.on('data', function(data) {
       console.log(data);
       raw.src = data.result;
       // raw.src = data.output;
   });
-});
 
-raw.onload = function() {
+  // Wait for the image data to load then draw it to canvas.
+  raw.onload = function() {
     img = createImage(raw.width, raw.height);
     img.drawingContext.drawImage(raw, 0, 0);
-}
+  }
 
+});
+
+// Begin normal p5 stuff.
 function setup() {
     createCanvas(windowWidth, windowHeight);
     background(100);
