@@ -11,9 +11,9 @@ socket.on('connect', function() {
 
 // When data is sent update the raw source. Sometimes this is data.output instead.
 socket.on('data', function(data) {
-    console.log(data);
-    raw.src = data.result;
-    // raw.src = data.output;
+  console.log(data);
+  raw.src = data.result;
+  // raw.src = data.output;
 });
 
 // Wait for the image data to load then draw it to canvas.
@@ -24,8 +24,8 @@ raw.onload = function() {
 
 // Begin normal p5 stuff.
 function setup() {
-    createCanvas(windowWidth, windowHeight);
-    background(100);
+  createCanvas(windowWidth, windowHeight);
+  background(100);
 }
 
 function draw() {
